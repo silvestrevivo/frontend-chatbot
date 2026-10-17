@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Inline code in answers: a subtle pill instead of the typography plugin's backticks */
+.prose :not(pre) > code {
+	@apply rounded bg-slate-100 px-1 py-0.5 font-medium dark:bg-slate-800;
+}
+
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+	content: none;
+}

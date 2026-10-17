@@ -12,4 +12,6 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# `uv run --exact` syncs the .venv volume with uv.lock on start (adding and
+# removing packages), so `docker compose up --build` is enough after a dependency change.
+CMD ["uv", "run", "--exact", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
